@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/cool stuff/Code/AndriodItemList/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2755208333333333" />
+        <entry key="..\:/cool stuff/Code/AndriodItemList/app/src/main/res/drawable/ic_crosshair.xml" value="0.38229166666666664" />
         <entry key="..\:/cool stuff/Code/AndriodItemList/app/src/main/res/layout/activity_book_list_main.xml" value="0.26875" />
         <entry key="..\:/cool stuff/Code/AndriodItemList/app/src/main/res/layout/activity_tab.xml" value="0.36614583333333334" />
         <entry key="..\:/cool stuff/Code/AndriodItemList/app/src/main/res/layout/fragment.xml" value="0.36614583333333334" />
+        <entry key="..\:/cool stuff/Code/AndriodItemList/app/src/main/res/layout/fragment_baidumap.xml" value="0.36614583333333334" />
         <entry key="..\:/cool stuff/Code/AndriodItemList/app/src/main/res/layout/fragment_main.xml" value="0.26875" />
         <entry key="..\:/cool stuff/Code/AndriodItemList/app/src/main/res/layout/fragment_tab.xml" value="0.36614583333333334" />
         <entry key="..\:/cool stuff/Code/AndriodItemList/app/src/main/res/layout/fragment_tab2.xml" value="0.3515625" />

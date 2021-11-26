@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.baidu.mapapi.CoordType;
+import com.baidu.mapapi.SDKInitializer;
 import com.example.main.R;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -18,7 +20,7 @@ public class BookListTabActivity extends AppCompatActivity {
     private TabLayout mTabLayout;
     private ViewPager2 mViewPage;
     private String[] tabTitles;//tab的标题
-    private List<Fragment> mDatas = new ArrayList<>();//ViewPage2的Fragment容器
+    private List<Fragment> fragments = new ArrayList<>();//ViewPage2的Fragment容器
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,7 @@ public class BookListTabActivity extends AppCompatActivity {
         mTabLayout = findViewById(R.id.tab_layout);
         mViewPage = findViewById(R.id.view_page);
         //创建适配器
-        BookListTabAdapter mAdapter = new BookListTabAdapter(this, mDatas);
+        BookListTabAdapter mAdapter = new BookListTabAdapter(this, fragments);
         mViewPage.setAdapter(mAdapter);
 
         //TabLayout与ViewPage2联动关键代码
@@ -61,14 +63,23 @@ public class BookListTabActivity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
+
+        // 百度地图SDK初始化
+        //在使用SDK各组件之前初始化context信息，传入ApplicationContext
+        SDKInitializer.initialize(getApplicationContext());
+        //自4.3.0起，百度地图SDK所有接口均支持百度坐标和国测局坐标，用此方法设置您使用的坐标类型.
+        //包括BD09LL和GCJ02两种坐标，默认是BD09LL坐标。
+        SDKInitializer.setCoordType(CoordType.BD09LL);
     }
 
-        //初始化数据
-        private void initData(){
-            tabTitles = new String[]{"导航一", "导航二"};
-            FragmentMain frgMain = new FragmentMain();
-            FragmentWebView frgWebView = new FragmentWebView();
-            mDatas.add(frgMain);
-            mDatas.add(frgWebView);
-        }
+    //初始化数据
+    private void initData() {
+        tabTitles = new String[]{"Home", "WebView","BaiduMap"};
+        FragmentMain frgMain = new FragmentMain();
+        FragmentWebView frgWebView = new FragmentWebView();
+        FragmentBaiduMap frgBaiduMap = new FragmentBaiduMap();
+        fragments.add(frgMain);
+        fragments.add(frgWebView);
+        fragments.add(frgBaiduMap);
+    }
 }
